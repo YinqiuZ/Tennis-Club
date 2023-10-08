@@ -1,0 +1,14 @@
+﻿@model IEnumerable<alpha3.Models.Member>
+
+@{
+    ViewData["Title"] = "Enrolled Members";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<ul>
+    @foreach (var member in Model)
+    {
+        <li>@member.Name</li>
+    }
+</ul>

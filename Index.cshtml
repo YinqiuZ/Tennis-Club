@@ -1,0 +1,52 @@
+﻿@model alpha3.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Coach Dashboard";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Welcome, @Model.UserName!</h1>
+    <p class="lead text-center">Manage your profile, view schedules, and interact with members here.</p>
+
+    <div class="row mt-5">
+        <!-- Profile Section -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header bg-primary text-white">
+                    Your Profile
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.UserName</h5>
+                    <p class="card-text">Email: @Model.Email</p>
+                    <a href="@Url.Action("Profile", "CoachDashboard")" class="btn btn-success">View/Edit Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedules Section -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header bg-primary text-white">
+                    Your Schedules
+                </div>
+                <div class="card-body">
+                    <p class="card-text">View and manage your upcoming schedules.</p>
+                    <a href="@Url.Action("Schedules", "CoachDashboard")" class="btn btn-success">View Schedules</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enrolled Members Section -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header bg-primary text-white">
+                    Enrolled Members
+                </div>
+                <div class="card-body">
+                    <p class="card-text">View members enrolled in your classes.</p>
+                    <a href="@Url.Action("EnrolledMembers", "CoachDashboard")" class="btn btn-success">View Enrolled Members</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@model alpha3.Models.CoachProfile
+
+@{
+    ViewData["Title"] = "Manage Profile";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Create/Edit form for the Coach's Profile -->
+<form asp-action="Profile" method="post">
+    <div class="form-group">
+        <label asp-for="Biography">Biography</label>
+        <textarea asp-for="Biography" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

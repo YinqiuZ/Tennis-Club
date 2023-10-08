@@ -1,0 +1,19 @@
+﻿@model alpha3.Models.CoachProfile  // Assuming CoachProfile is your model
+
+<h2>Create Your Profile</h2>
+
+<form asp-action="CreateProfile" asp-controller="CoachDashboard" method="post">
+    <!-- Add form fields to capture profile data, for example: -->
+    <div class="form-group">
+        <label asp-for="Biography">Biography</label>
+        <textarea asp-for="Biography" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="FullName">Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">Create Profile</button>
+</form>
