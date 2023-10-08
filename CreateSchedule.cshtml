@@ -1,0 +1,42 @@
+﻿@model Schedule
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Schedule</title>
+</head>
+<body>
+    <h2>Create Schedule</h2>
+    <form asp-action="CreateSchedule" asp-controller="AdminDashboard" method="post">
+        <div class="form-group">
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="EventName" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="eventDate">Date:</label>
+            <input type="date" id="eventDate" name="Date" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="Location" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="coach">Coach:</label>
+            <select id="coach" name="Name" class="form-control">
+                <!-- This will be populated with a list of coaches from your database -->
+                @foreach (var coach in ViewBag.Coaches)
+                {
+                    <option value="@coach.Id">@coach.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</body>
+</html>

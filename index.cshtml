@@ -1,0 +1,35 @@
+﻿@model IEnumerable<alpha3.Models.Member>
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+
+<p>Welcome to the Admin Dashboard!</p>
+
+<ul>
+    <li><a href="@Url.Action("CreateSchedule", "AdminDashboard")">Create Schedule</a></li>
+    <li><a href="@Url.Action("MembersList", "AdminDashboard")">View Members</a></li>
+</ul>
+
+<!-- Display the list of members -->
+<h3>Members</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.Name</td> 
+                <td>@member.Email</td> 
+            </tr>
+        }
+    </tbody>
+</table>

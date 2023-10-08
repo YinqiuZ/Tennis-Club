@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Member>
+
+<h2>Members List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <!-- Add other relevant fields -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.Name</td>
+                <!-- Add other relevant fields -->
+            </tr>
+        }
+    </tbody>
+</table>
