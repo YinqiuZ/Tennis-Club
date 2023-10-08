@@ -1,68 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home";
+﻿@model IEnumerable<Member>
+
+@{
+    ViewData["Title"] = "Index";
 }
 
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(45deg, #007BFF, #00C4FF);
-        color: white;
-    }
+<h1>Index</h1>
 
-    .custom-card {
-        background-color: rgba(255, 255, 255, 0.1);
-        border: none;
-        border-radius: 15px;
-        padding: 20px;
-        margin-bottom: 20px;
-        transition: transform .2s, box-shadow .2s;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-        .custom-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-    a {
-        color: #00C4FF;
-    }
-
-        a:hover {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-    .btn-outline-light {
-        border-color: #00C4FF;
-        color: #00C4FF;
-        font-weight: bold;
-        transition: background-color .2s, color .2s;
-    }
-
-        .btn-outline-light:hover {
-            background-color: #00C4FF;
-            color: white;
-        }
-</style>
-
-<div class="container mt-5">
-    <h1 class="display-3 mb-5 text-center">Tennis Club</h1>
-    <p class="lead text-center mb-5">Your futuristic platform for all your coaching and scheduling needs.</p>
-
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <div class="custom-card p-4">
-                <h2>Members</h2>
-                <p>Explore our <a href="/Schedules">schedule</a> to see upcoming events.</p>
-                <p><a href="/Account/Register" class="btn btn-outline-light">Create an Account</a></p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="custom-card p-4">
-                <h2>About Us</h2>
-                <p>We are dedicated to futuristic and seamless experiences. We aim to centralize all information for a connected tomorrow.</p>
-            </div>
-        </div>
-    </div>
-</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MemberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
