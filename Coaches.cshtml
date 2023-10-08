@@ -1,0 +1,28 @@
+﻿@model IEnumerable<alpha3.Models.Coach>
+
+<h2>Coaches</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Biography</th>
+            <th>View Profile</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var coach in Model)
+        {
+            <tr>
+                <td>@coach.Name</td>
+                <td>@coach.Biography</td>
+                <td>
+                    <a asp-controller="MemberDashboard"
+                   asp-action="ViewCoachProfile"
+                   asp-route-id="@coach.Name"
+                       class="btn btn-info">View Profile</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,14 +1,31 @@
 ﻿@model IEnumerable<alpha3.Models.Schedule>
 
-@{
-    ViewData["Title"] = "Upcoming Schedules";
-}
+<h2>Schedules</h2>
 
-<h2>@ViewData["Title"]</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Coach Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var schedule in Model)
+        {
+            <tr>
+                <td>@schedule.EventDate.ToShortDateString()</td>
+                <td>@schedule.Time</td>
+                <td>@schedule.Coach.UserName</td>
 
-<ul>
-    @foreach (var schedule in Model)
-    {
-        <li>@Html.DisplayFor(modelItem => schedule.Date): @Html.DisplayFor(modelItem => schedule.Description)</li>
-    }
-</ul>
+                <td>
+                    <form asp-controller="MemberDashboard" asp-action="Enroll" method="post">
+                        <input type="hidden" name="scheduleId" value="@schedule.Id" />
+                        <button type="submit" class="btn btn-primary">Enroll</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
